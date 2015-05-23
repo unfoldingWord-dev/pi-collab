@@ -2,8 +2,7 @@
 
 # Install packages
 apt-get update
-apt-get -y install npm make nginx gzip git-core python libssl-dev pkg-config build-essential tmux
-# Not available from repo: php-fpm docuwiki
+apt-get -y install npm make nginx gzip git-core python libssl-dev pkg-config build-essential tmux php5-fpm dokuwiki
 
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 dpkg -i node_latest_armhf.deb
