@@ -37,5 +37,6 @@ echo -e '\nexport PATH=$PATH:/usr/local/bin' >> /home/etherpad/.bashrc
 su etherpad -c 'git clone http://github.com/ether/etherpad-lite.git /home/etherpad/etherpad-lite'
 
 cd /home/etherpad/etherpad-lite
-su etherpad -c 'sh bin/run.sh'
+su etherpad -c 'sh bin/installDeps.sh'
+# To run server: node `pwd -P`/node_modules/ep_etherpad-lite/node/server.js
 
