@@ -43,7 +43,7 @@ su etherpad -c 'sh bin/installDeps.sh'
 
 # API Setup to pull from Unfoldingword.org
 mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
-# rsync -havP rsync://uk.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
-# rsync -havP rsync://jp.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
-rsync -havP rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://uk.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://jp.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
 
