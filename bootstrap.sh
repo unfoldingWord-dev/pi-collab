@@ -4,6 +4,10 @@
 apt-get update
 apt-get -y install npm make nginx gzip git-core python libssl-dev pkg-config build-essential tmux php5-fpm
 
+cd /usr/local/src
+git clone https://github.com/unfoldingWord-dev/pi-collab.git
+cd pi-collab
+
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 dpkg -i node_latest_armhf.deb
 
