@@ -40,3 +40,10 @@ cd /home/etherpad/etherpad-lite
 su etherpad -c 'sh bin/installDeps.sh'
 # To run server: node `pwd -P`/node_modules/ep_etherpad-lite/node/server.js
 
+
+# API Setup to pull from Unfoldingword.org
+mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP rsync://uk.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP rsync://jp.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+rsync -havP rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+
