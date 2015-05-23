@@ -11,8 +11,7 @@ dpkg -i node_latest_armhf.deb
 useradd -m etherpad
 echo -e '\nexport PATH=$PATH:/usr/local/bin' >> /home/etherpad/.bashrc
 
-su - etherpad
+su etherpad -c 'git clone http://github.com/ether/etherpad-lite.git /home/etherpad/etherpad-lite'
 
-git clone http://github.com/ether/etherpad-lite.git /home/etherpad/etherpad-lite
-cd etherpad-lite
-sh bin/run.sh
+cd /home/etherpad/etherpad-lite
+su etherpad -c 'sh bin/run.sh'
