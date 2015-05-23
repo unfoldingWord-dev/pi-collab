@@ -38,8 +38,11 @@ su etherpad -c 'git clone http://github.com/ether/etherpad-lite.git /home/etherp
 
 cd /home/etherpad/etherpad-lite
 su etherpad -c 'sh bin/installDeps.sh'
-# To run server: node `pwd -P`/node_modules/ep_etherpad-lite/node/server.js
 
+# To run server: node /home/etherpad/etherpad-lite/node_modules/ep_etherpad-lite/node/server.js
+npm i -g forever daemonize-debian
+node-daemonize mk etherpad-service.json
+service etherpad start
 
 # API Setup to pull from Unfoldingword.org
 mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
