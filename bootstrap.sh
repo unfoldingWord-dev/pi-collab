@@ -37,6 +37,8 @@ cd $WEBDIR/lib/plugins/
 git clone https://github.com/Door43/dokuwiki-plugin-translation.git translation
 git clone https://github.com/Door43/dw-gitcommit.git gitcommit
 
+# Get language names
+wget -P $WEBDIR/lib/plugins/translation/lang http://td.unfoldingword.org/exports/langnames.txt
 
 service php5-fpm restart
 service nginx restart
