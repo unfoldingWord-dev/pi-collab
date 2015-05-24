@@ -1,0 +1,80 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:             etherpad
+# Required-Start:       $local_fs $remote_fs $network $time
+# Required-Stop:        $local_fs $remote_fs $network $time
+# Should-Start:         $syslog
+# Should-Stop:          $syslog
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    etherpad service
+### END INIT INFO
+
+NAME=etherpad
+APP_DIR=/home/etherpad
+APP_PATH=$APP_DIR/etherpad-lite
+WRAP=/usr/local/bin/forever
+APP_SCRIPT=node_modules/ep_etherpad-lite/node/server.js
+APP_ARGS=
+PIDFILE=$APP_DIR/etherpad.pid
+LOGFILE=$APP_DIR/etherpad-log.log
+ERRFILE=$APP_DIR/etherpad-error.log
+UID="etherpad"
+
+start() {
+    echo "Starting $NAME ..."
+    cd $APP_PATH; su etherpad -c "$WRAP start --pidFile $PIDFILE --uid $UID --sourceDir $APP_PATH -l $LOGFILE -e $ERRFILE --append --minUptime 5000 --spinSleepTime 2000 $APP_SCRIPT $APP_ARGS"
+    RETVAL=$?
+}
+
+stop() {
+    if [ -f $PIDFILE ]; then
+        echo "Stopping $NAME $APP_ARGS ..."
+        su etherpad -c "$WRAP stop $UID"
+        RETVAL=$?
+    else
+        echo "$NAME $APP_ARGS is not running."
+        RETVAL=0
+    fi
+}
+
+status() {
+    echo "Status $NAME $APP_ARGS:"
+    if [ -f $PIDFILE ]; then
+        su etherpad -c "$WRAP list | grep $UID"
+        RETVAL=$?
+    else
+        echo "not running"
+    fi
+}
+
+restart() {
+    if [ -f $PIDFILE ]; then
+        echo "Restarting $NAME $APP_ARGS ..."
+        stop
+    fi
+    start
+    RETVAL=$?
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    status)
+        status
+        ;;
+    *)
+    echo "Usage: service $NAME {start|stop|restart|status}"
+    exit 1
+    ;;
+esac
+
+exit $RETVAL
