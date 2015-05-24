@@ -29,7 +29,7 @@ sed  -i "s/\/var\/run\/php5-fpm.sock/127.0.0.1:9000/" /etc/php5/fpm/pool.d/www.c
 
 # DW Plugin setup
 cd /var/www/vhosts/pi-collab/httpdocs/lib/plugins/
-git clone git@github.com:Door43/dokuwiki-plugin-translation.git translation
+git clone https://github.com/Door43/dokuwiki-plugin-translation.git translation
 
 
 /etc/init.d/php5-fpm restart
