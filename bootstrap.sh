@@ -6,12 +6,14 @@ apt-get -y install npm make nginx gzip git-core python libssl-dev pkg-config bui
 
 SRC=/usr/local/src
 cd $SRC
+
+# Install node
+wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+dpkg -i node_latest_armhf.deb
+
 REPO=pi-collab
 git clone https://github.com/unfoldingWord-dev/$REPO.git
 cd $SRC/$REPO
-
-wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-dpkg -i node_latest_armhf.deb
 
 # Set up nginx
 WEBDIR=/var/www/vhosts/pi-collab/httpdocs
