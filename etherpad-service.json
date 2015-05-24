@@ -1,0 +1,12 @@
+{
+  "name":"etherpad",
+  "description":"etherpad service",
+  "path":"/home/etherpad/etherpad-lite/node_modules/ep_etherpad-lite/node",
+  "script":"server.js",
+  "args":"",
+  "pid":"/var/run/etherpad.pid",
+  "log":"/var/log/etherpad-log.log",
+  "error":"/var/log/etherpad-error.log",
+  "wrap":"forever",
+  "wrap.bin":"/usr/local/bin/forever"
+}

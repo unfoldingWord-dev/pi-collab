@@ -42,5 +42,17 @@ echo -e '\nexport PATH=$PATH:/usr/local/bin' >> /home/etherpad/.bashrc
 su etherpad -c 'git clone http://github.com/ether/etherpad-lite.git /home/etherpad/etherpad-lite'
 
 cd /home/etherpad/etherpad-lite
-su etherpad -c 'sh bin/run.sh'
+su etherpad -c 'sh bin/installDeps.sh'
+
+# Get etherpad running at init
+npm i -g forever
+cp etherpad-init /etc/init.d/etherpad
+update-rc.d etherpad defaults
+service etherpad start
+
+# API Setup to pull from Unfoldingword.org
+mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://uk.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+# rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://jp.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
 
