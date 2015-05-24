@@ -53,5 +53,5 @@ service etherpad restart
 mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
 # rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://uk.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
 # rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://jp.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
-rsync -havP --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
+rsync -havP --exclude=obs/jpg/1/en/obs-images-2160px.zip --exclude=bible/jpg/1/SweetPublishingBibleIllustrations.zip rsync://us.door43.org/api/ /var/www/vhosts/api.unfoldingword.org/httpdocs/
 
