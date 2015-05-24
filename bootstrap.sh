@@ -31,9 +31,8 @@ sed  -i "s/\/var\/run\/php5-fpm.sock/127.0.0.1:9000/" /etc/php5/fpm/pool.d/www.c
 cd /var/www/vhosts/pi-collab/httpdocs/lib/plugins/
 git clone https://github.com/Door43/dokuwiki-plugin-translation.git translation
 
-
-/etc/init.d/php5-fpm restart
-/etc/init.d/nginx restart
+service php5-fpm restart
+service nginx restart
 
 # Create etherpad user
 useradd -m etherpad
@@ -48,7 +47,7 @@ su etherpad -c 'sh bin/installDeps.sh'
 npm i -g forever
 cp etherpad-init /etc/init.d/etherpad
 update-rc.d etherpad defaults
-service etherpad start
+service etherpad restart
 
 # API Setup to pull from Unfoldingword.org
 mkdir -p /var/www/vhosts/api.unfoldingword.org/httpdocs/
