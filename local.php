@@ -9,3 +9,11 @@ $conf['lang'] = 'en';
 $conf['license'] = 'cc-by-sa';
 $conf['useacl'] = 1;
 $conf['superuser'] = '@admin';
+
+# Plugins
+$conf['plugin']['translation']['translations'] = 'ab abp abs adi adl af aii am an apd ar ar-x-dcv arz as av az ba bal be bg bhj bho bi bkm blx bm bn bnp bns bo br brh brx bs bus ca ce ch cnh co cs cv cy da de dgo dng dv dz ee el en es es-419 et eu fa fi fj fo fr frd fy ga gaj gaj-x-aygm gaj-x-kamu gaj-x-urona gaj-x-ymnk gd gl gu gv ha hch he hi hi-x-dehathi ho hoc hr ht hu hy hz id ig ii ilo is it ja jit jmd jv ka kfb kff kfp kfq kfx ki kia kj kk kkl kl km kmb kn ko ks ktu kw kxv ky kyx lae lb lg lgg li lki ln lns lo loe lt lua lv mg mgh mh mi mk ml mn mr ms mt my mzn na nb nd ne ng niz njz nl nn nr nv nxl ny oc or os pa pga pgg pl ppq prs ps pt pt-br raj rm rn ro ru rw sat sck sd sdh se sg shn si sk sl slu sm sn so sr ss st stb su suv sv sw ta tdj te tg th thr ti tk tl tll tn to tpi tr ts tt ttt-x-ismai ttt-x-txizi tw ty ug uk ums ur ve vi wa wo xh xmf yam yao yo zh zh-tw zmz zu';
+$conf['plugin']['translation']['dropdown'] = '2';
+$conf['plugin']['translation']['display'] = 'langcode,name';
+$conf['plugin']['translation']['translateui'] = 1;
+$conf['plugin']['translation']['checkage'] = 1;
+$conf['plugin']['translation']['localabout'] = 1;
