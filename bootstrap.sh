@@ -27,9 +27,10 @@ wget http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
 tar xfz dokuwiki-stable.tgz
 mv dokuwiki-20* dokuwiki
 rsync -havP dokuwiki/ $WEBDIR/
-chown -R www-data:www-data $WEBDIR
 cp $SRC/$REPO/users.auth.php $SRC/$REPO/local.php $WEBDIR/conf/
 cp $SRC/$REPO/home.txt $SRC/$REPO/sidebar.txt     $WEBDIR/data/pages/
+echo '*       @ALL    2' >>$WEBDIR/conf/acl.auth.php
+chown -R www-data:www-data $WEBDIR
 sed  -i "s/\/var\/run\/php5-fpm.sock/127.0.0.1:9000/" /etc/php5/fpm/pool.d/www.conf
 
 # DokuWiki Plugin setup
