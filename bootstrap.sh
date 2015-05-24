@@ -46,6 +46,7 @@ su etherpad -c 'sh bin/installDeps.sh'
 # Get etherpad running at init
 npm i -g forever
 cp /usr/local/src/pi-collab/etherpad-init /etc/init.d/etherpad
+chmod +x /etc/init.d/etherpad
 update-rc.d etherpad defaults
 service etherpad restart
 
