@@ -16,5 +16,5 @@ do
     git clone https://github.com/Door43/d43-$LANG.git $PAGESDIR/$LANG
     chown -R www-data:www-data $PAGESDIR/$LANG
     NAME=$(awk "\$1==\"$LANG\"" $WEBDIR/lib/plugins/translation/lang/langnames.txt | cut -f 2)
-    echo "* [[:$LANG:home|$NAME ($LANG)]]" >> $PAGESDIR/home.txt
+    echo "  * [[:$LANG:home|$NAME ($LANG)]]" >> $PAGESDIR/home.txt
 done
