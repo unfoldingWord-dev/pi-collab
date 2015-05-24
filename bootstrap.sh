@@ -14,7 +14,8 @@ wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 dpkg -i node_latest_armhf.deb
 
 # Set up nginx
-mkdir -p /var/www/vhosts/pi-collab/httpdocs
+WEBDIR=/var/www/vhosts/pi-collab/httpdocs
+mkdir -p $WEBDIR
 cp pi-collab.conf /etc/nginx/conf.d/
 cp user_agent_block /etc/nginx/
 
@@ -23,14 +24,14 @@ cd $SRC
 wget http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
 tar xfz dokuwiki-stable.tgz
 mv dokuwiki-20* dokuwiki
-rsync -havP dokuwiki/ /var/www/vhosts/pi-collab/httpdocs/
-chown -R www-data:www-data /var/www/vhosts/pi-collab/httpdocs
-cp $SRC/$REPO/users.auth.php /var/www/vhosts/pi-collab/httpdocs/conf/
-cp $SRC/$REPO/local.php /var/www/vhosts/pi-collab/httpdocs/conf/
+rsync -havP dokuwiki/ $WEBDIR/
+chown -R www-data:www-data $WEBDIR
+cp $SRC/$REPO/users.auth.php $SRC/$REPO/local.php $WEBDIR/conf/
+cp $SRC/$REPO/home.txt $SRC/$REPO/sidebar.txt     $WEBDIR/data/pages/
 sed  -i "s/\/var\/run\/php5-fpm.sock/127.0.0.1:9000/" /etc/php5/fpm/pool.d/www.conf
 
 # DokuWiki Plugin setup
-cd /var/www/vhosts/pi-collab/httpdocs/lib/plugins/
+cd $WEBDIR/lib/plugins/
 git clone https://github.com/Door43/dokuwiki-plugin-translation.git translation
 git clone https://github.com/Door43/dw-gitcommit.git gitcommit
 
