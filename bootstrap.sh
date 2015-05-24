@@ -27,7 +27,7 @@ cp users.auth.php /var/www/vhosts/pi-collab/httpdocs/conf/
 cp local.php /var/www/vhosts/pi-collab/httpdocs/conf/
 sed  -i "s/\/var\/run\/php5-fpm.sock/127.0.0.1:9000/" /etc/php5/fpm/pool.d/www.conf
 
-# DW Plugin setup
+# DokuWiki Plugin setup
 cd /var/www/vhosts/pi-collab/httpdocs/lib/plugins/
 git clone https://github.com/Door43/dokuwiki-plugin-translation.git translation
 
